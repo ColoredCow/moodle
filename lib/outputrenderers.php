@@ -1965,6 +1965,38 @@ class core_renderer extends renderer_base {
         return $this->render_from_template('core/block', $context);
     }
 
+    public function block_secondary(block_contents $bc, $region) {
+        global $DB;
+        $bc = clone($bc); // Avoid messing up the object passed in.
+        if (empty($bc->blockinstanceid) || !strip_tags($bc->title)) {
+            $bc->collapsible = block_contents::NOT_HIDEABLE;
+        }
+
+        $id = !empty($bc->attributes['id']) ? $bc->attributes['id'] : uniqid('block-');
+        $context = new stdClass();
+        $context->skipid = $bc->skipid;
+        $context->blockinstanceid = $bc->blockinstanceid ?: uniqid('fakeid-');
+        $context->dockable = $bc->dockable;
+        $context->id = $id;
+        $context->hidden = $bc->collapsible == block_contents::HIDDEN;
+        $context->skiptitle = strip_tags($bc->title);
+        $context->showskiplink = !empty($context->skiptitle);
+        $context->arialabel = $bc->arialabel;
+        $context->ariarole = !empty($bc->attributes['role']) ? $bc->attributes['role'] : 'complementary';
+        $context->class = $bc->attributes['class'];
+        $context->type = $bc->attributes['data-block'];
+        $context->title = 'Application Count';
+        $context->content =  $DB->count_records('course');
+        $context->annotation = $bc->annotation;
+        $context->footer = $bc->footer;
+        $context->hascontrols = !empty($bc->controls);
+        if ($context->hascontrols) {
+            $context->controls = $this->block_controls($bc->controls, $id);
+        }
+
+        return $this->render_from_template('core/block_secondary', $context);
+    }
+
     /**
      * Render the contents of a block_list.
      *
@@ -2021,6 +2053,33 @@ class core_renderer extends renderer_base {
             } else {
                 throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
             }
+        }
+        return $output;
+    }
+
+    public function blocks_for_region_secondary($region, $fakeblocksonly = false) {
+        $blockcontents = $this->page->blocks->get_content_for_region($region, $this);
+        $lastblock = null;
+        $zones = array();
+        foreach ($blockcontents as $bc) {
+            if ($bc instanceof block_contents) {
+                $zones[] = $bc->title;
+            }
+        }
+        $output = '';
+
+        if ($bc instanceof block_contents) {
+            if ($fakeblocksonly && !$bc->is_fake()) {
+                // Skip rendering real blocks if we only want to show fake blocks.
+            }
+            $output .= $this->block_secondary($bc, $region);
+            $lastblock = $bc->title;
+        } else if ($bc instanceof block_move_target) {
+            if (!$fakeblocksonly) {
+                $output .= $this->block_move_target($bc, $zones, $lastblock, $region);
+            }
+        } else {
+            throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
         }
         return $output;
     }
@@ -4273,6 +4332,25 @@ EOD;
         return html_writer::tag($tag, $content, $attributes);
     }
 
+    public function blocks_secondary($region, $classes = array(), $tag = 'aside', $fakeblocksonly = false) {
+        $displayregion = $this->page->apply_theme_region_manipulations($region);
+        $classes = (array)$classes;
+        $classes[] = 'block-region';
+        $attributes = array(
+            'id' => 'block-region-'.preg_replace('#[^a-zA-Z0-9_\-]+#', '-', $displayregion),
+            'class' => join(' ', $classes),
+            'data-blockregion' => $displayregion,
+            'data-droptarget' => '1'
+        );
+        if ($this->page->blocks->region_has_content($displayregion, $this)) {
+            $content = html_writer::tag('h2', get_string('blocks'), ['class' => 'sr-only']) .
+                $this->blocks_for_region_secondary($displayregion, $fakeblocksonly);
+        } else {
+            $content = html_writer::tag('h2', get_string('blocks'), ['class' => 'sr-only']);
+        }
+        return html_writer::tag($tag, $content, $attributes);
+    }
+
     /**
      * Renders a custom block region.
      *
@@ -4289,7 +4367,8 @@ EOD;
      */
     public function custom_block_region($regionname) {
         if ($this->page->theme->get_block_render_method() === 'blocks') {
-            return $this->blocks($regionname);
+            // return $this->blocks($regionname);
+            return $this->blocks_secondary($regionname);
         } else {
             return $this->blocks_for_region($regionname);
         }
