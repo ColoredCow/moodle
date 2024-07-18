@@ -1,6 +1,6 @@
 /* Header */
 #header {
-    border-bottom: 1px solid $color_whisper;
+    border-bottom: 1px solid $black;
     background: $white;
     box-shadow: 10px 5px 5px $white;
     &.navbar.fixed-top {
@@ -38,6 +38,7 @@
         a.nav-link {
             padding-left: 10px;
             padding-right: 10px;
+            color: $secondary;
             &:hover,
             &:focus {
                 background: $primary;
@@ -175,8 +176,9 @@
         &:focus,
         &:active,
         &.active {
-            border-bottom: 5px solid $secondary;
+            border-bottom: 5px solid $primary;
             background: $white;
+            color: $primary;
         }
         .moremenu .nav-link {
             &:hover,
@@ -407,6 +409,7 @@
 
 .dropdown-toggle::after {
     @extend .fa-solid;
+    display: none;
     content: fa-content($fa-var-chevron-down);
     margin-right: 0;
     margin-left: 4px;
@@ -479,16 +482,16 @@
         box-shadow: none;
         &.navbar-light {
             .primary-navigation {
-                margin-left: auto;
                 .navigation {
                     display: flex;
                     align-items: center;
                     .nav-link {
-                        height: 40px;
+                        height: 70px;
                         border: 0;
+                        color: $secondary;
                         &.active {
                             color: $primary;
-                            border-color: $primary;
+                            border-bottom: 5px solid $primary;
                         }
                     }
                     .dropdown-menu {
