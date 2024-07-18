@@ -17,8 +17,8 @@
 /**
  * Maintance layout
  * @package    theme_academi
- * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
- * @author    LMSACE Dev Team
+ * @copyright  2024 onwards ColoredCow Team (https://coloredcow.com/)
+ * @author    ColoredCow Team
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();

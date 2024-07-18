@@ -17,8 +17,8 @@
 /**
  * English lang file
  * @package    theme_academi
- * @copyright  2015 onwards LMSACE Dev Team (http://www.lmsace.com)
- * @author    LMSACE Dev Team
+ * @copyright  2024 onwards ColoredCow Team (https://coloredcow.com/)
+ * @author    ColoredCow Team
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -46,7 +46,7 @@ $string['carousel'] = 'Carousel';
 $string['center'] = 'Center';
 $string['centerLeft'] = 'CenterLeft';
 $string['centerRight'] = 'CenterRight';
-$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><img class=img-polaroid src="academi/pix/screenshot.jpg" /><br/><p></p><h3>Theme Credits</h3><p><h3>Moodle Academi theme</h3><p>This theme is based on the Boost Moodle theme.</p><p>Authors: LMSACE Dev Team<br>Contact: info@lmsace.com<br>Website: <a href="http://www.lmsace.com">www.lmsace.com</a><br></p>';
+$string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot"><img class=img-polaroid src="academi/pix/screenshot.jpg" /><br/><p></p><h3>Theme Credits</h3><p><h3>Moodle Academi theme</h3><p>This theme is based on the Boost Moodle theme.</p><p>Authors: ColoredCow Team<br>Contact: info@lmsace.com<br>Website: <a href="http://www.lmsace.com">www.lmsace.com</a><br></p>';
 $string["collapse"] = "Collapsed";
 $string["comboListboxType"] = 'Combo list display style';
 $string["comboListboxType_desc"] = 'Select a display style for combo list block.';

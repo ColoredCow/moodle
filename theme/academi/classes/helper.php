@@ -18,8 +18,8 @@
  * Theme helper class for the theme_academi.
  *
  * @package   theme_academi
- * @copyright 2023 onwards LMSACE Dev Team (http://www.lmsace.com)
- * @author    LMSACE Dev Team
+ * @copyright 2024 onwards ColoredCow Team (https://coloredcow.com/)
+ * @author    ColoredCow Team
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 namespace theme_academi;
