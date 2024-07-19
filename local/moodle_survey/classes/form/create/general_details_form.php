@@ -9,21 +9,34 @@ class general_details_form extends \moodleform {
     public function definition() {
         $mform = $this->_form;
 
-        $mform->addElement('text', 'name', get_string('surveyname', 'local_moodle_survey'));
-        $mform->setType('name', PARAM_NOTAGS);
-        $mform->addRule('name', null, 'required', null, 'client');
+        // Add custom HTML for form heading
+        $mform->addElement('html', '<div class="form-section">');
 
-        $mform->addElement('textarea', 'description', get_string('surveydescription', 'local_moodle_survey'));
-        $mform->setType('description', PARAM_TEXT);
+        // Name field with custom HTML
+        $mform->addElement('html', '<div class="form-group">');
+        $mform->addElement('html', '<label for="id_name">' . get_string('surveyname', 'local_moodle_survey') . '</label>');
+        $mform->addElement('html', '<input type="text" id="id_name" name="name" class="form-control" required>');
+        $mform->addElement('html', '</div>');
 
-        $statusoptions = [
-            'active' => get_string('active', 'local_moodle_survey'),
-            'inactive' => get_string('inactive', 'local_moodle_survey')
-        ];
-        $mform->addElement('select', 'status', get_string('surveystatus', 'local_moodle_survey'), $statusoptions);
-        $mform->setDefault('status', 'active');
+        // Description field with custom HTML
+        $mform->addElement('html', '<div class="form-group">');
+        $mform->addElement('html', '<label for="id_description">' . get_string('surveydescription', 'local_moodle_survey') . '</label>');
+        $mform->addElement('html', '<textarea id="id_description" name="description" wrap="virtual" rows="10" cols="50" class="form-control"></textarea>');
+        $mform->addElement('html', '</div>');
 
+        // Status field with custom HTML
+        $mform->addElement('html', '<div class="form-group">');
+        $mform->addElement('html', '<label for="id_status">' . get_string('surveystatus', 'local_moodle_survey') . '</label>');
+        $mform->addElement('html', '<select id="id_status" name="status" class="form-control">');
+        $mform->addElement('html', '<option value="0">' . get_string('inactive', 'local_moodle_survey') . '</option>');
+        $mform->addElement('html', '<option value="1">' . get_string('active', 'local_moodle_survey') . '</option>');
+        $mform->addElement('html', '</select>');
+        $mform->addElement('html', '</div>');
 
+        // Custom HTML for closing the form section
+        $mform->addElement('html', '</div>');
+
+        // Add action buttons
         $this->add_action_buttons();
     }
 }

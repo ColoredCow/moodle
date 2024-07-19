@@ -40,6 +40,7 @@ $string['surveydeleted'] = 'Survey deleted successfully';
 $string['confirmdelete'] = 'Are you sure you want to delete this survey?';
 $string['nosurveysfound'] = 'No surveys found.';
 $string['generaldetails'] = 'General Details';
+$string['surveydetails'] = 'Survey Details';
 $string['questionsscores'] = 'Questions & Scores';
 $string['interpretations'] = 'Interpretations';
 $string['validity'] = 'Validity';
