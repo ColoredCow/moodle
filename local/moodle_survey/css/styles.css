@@ -106,3 +106,11 @@
     display: none;
     padding: 10px;
 }
+
+.page-header-headings {
+    .h2 {
+        color: #232323;
+        font-size: 22px;
+        font-weight: 400 !important;
+    }
+}
