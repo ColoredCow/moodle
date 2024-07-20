@@ -1,9 +1,12 @@
 <div id="general">
     <div class="accordion">
-        <div class="accordion-header">
+        <div class="accordion-header general-details-section">
+            <?php $iconurl = new moodle_url('/local/moodle_survey/pix/arrow-down.svg');
+                echo '<img src="' . $iconurl . '" alt="Icon" class="accordion-icon">';
+            ?>
             <h5><?php echo get_string('surveydetails', 'local_moodle_survey'); ?></h5>
         </div>
-        <div class="accordion-body">
+        <div class="accordion-body general-details">
             <?php
             require_once($CFG->dirroot . '/local/moodle_survey/classes/form/create/general_details_form.php');
             $mform = new \local_moodle_survey\form\create\general_details_form();
