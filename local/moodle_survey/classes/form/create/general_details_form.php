@@ -4,8 +4,9 @@ namespace local_moodle_survey\form\create;
 defined('MOODLE_INTERNAL') || die();
 
 require_once("$CFG->libdir/formslib.php");
+require_once("$CFG->libdir/customformslib.php");
 
-class general_details_form extends \moodleform {
+class general_details_form extends \customformlib {
     public function definition() {
         $mform = $this->_form;
 
@@ -16,7 +17,10 @@ class general_details_form extends \moodleform {
         // Name field with custom HTML
         $mform->addElement('html', '<div class="form-group">');
         $mform->addElement('html', '<label for="id_name">' . get_string('surveycategory', 'local_moodle_survey') . '</label>');
-        $mform->addElement('html', '<input type="text" id="id_name" name="name" class="form-control" required>');
+        $mform->addElement('html', '<select id="id_name" name="status" class="form-control" required>');
+        $mform->addElement('html', '<option value="0">' . get_string('inactive', 'local_moodle_survey') . '</option>');
+        $mform->addElement('html', '<option value="1">' . get_string('active', 'local_moodle_survey') . '</option>');
+        $mform->addElement('html', '</select>');
         $mform->addElement('html', '<div class="new-survey-category-section">');
         $mform->addElement('html', '');
         $mform->addElement('html', '<div id="new-category-input-container"></div>');
@@ -26,7 +30,7 @@ class general_details_form extends \moodleform {
         // Description field with custom HTML
         $mform->addElement('html', '<div class="form-group">');
         $mform->addElement('html', '<label for="id_description">' . get_string('surveydescription', 'local_moodle_survey') . '</label>');
-        $mform->addElement('html', '<textarea id="id_description" name="description" wrap="virtual" rows="5" cols="100" class="form-control"></textarea>');
+        $mform->addElement('html', '<textarea id="id_description" placeholder="' . get_string('surveydescriptionplaceholder', 'local_moodle_survey') . '" name="description" wrap="virtual" rows="5" cols="100" class="form-control"></textarea>');
         $mform->addElement('html', '</div>');
 
         // Status field with custom HTML
@@ -42,6 +46,6 @@ class general_details_form extends \moodleform {
         $mform->addElement('html', '</div>');
 
         // Add action buttons
-        $this->add_action_buttons();
+        $this->add_custom_action_buttons(true, get_string('submit', 'local_moodle_survey'));
     }
 }

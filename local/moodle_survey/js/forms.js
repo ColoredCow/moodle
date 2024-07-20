@@ -20,10 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('add-category-button').addEventListener('click', function() {
         var container = document.getElementById('new-category-input-container');
-        var newInput = document.createElement('input');
-        newInput.setAttribute('type', 'text');
-        newInput.setAttribute('name', 'newcategory');
-        newInput.setAttribute('class', 'form-control');
-        container.appendChild(newInput);
+        var newSelect = document.createElement('select');
+        newSelect.name = 'category';
+        newSelect.className = 'form-control category-select';
+        newSelect.required = true;
+        newSelect.innerHTML = '<option value="0">Inactive</option>' +
+                            '<option value="1">Active</option>';
+        container.appendChild(newSelect);
     });
 });
+
