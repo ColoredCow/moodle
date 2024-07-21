@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// set the default value 0 of the input number type 
 document.getElementById("number").defaultValue = "0";
 
 document.addEventListener('DOMContentLoaded', function() {
