@@ -3,7 +3,6 @@ namespace local_moodle_survey\form\create;
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once("$CFG->libdir/formslib.php");
 require_once("$CFG->libdir/customformslib.php");
 
 class general_details_form extends \customformlib {
@@ -21,10 +20,9 @@ class general_details_form extends \customformlib {
         $mform->addElement('html', '<option value="0">' . get_string('inactive', 'local_moodle_survey') . '</option>');
         $mform->addElement('html', '<option value="1">' . get_string('active', 'local_moodle_survey') . '</option>');
         $mform->addElement('html', '</select>');
-        $mform->addElement('html', '<div class="new-survey-category-section">');
-        $mform->addElement('html', '');
+        $mform->addElement('html', '<div class="new-option-section">');
         $mform->addElement('html', '<div id="new-category-input-container"></div>');
-        $mform->addElement('html', '<button type="button" id="add-category-button"><img src="' . $iconurl . '" alt="Icon" class="plus-icon">' . get_string('newsurveycategory', 'local_moodle_survey') . '</button>');
+        $mform->addElement('html', '<button type="button" id="add-category-button" class="add-new-button"><img src="' . $iconurl . '" alt="Icon" class="plus-icon">' . get_string('newsurveycategory', 'local_moodle_survey') . '</button>');
         $mform->addElement('html', '</div> </div>');
 
         // Description field with custom HTML
@@ -46,6 +44,6 @@ class general_details_form extends \customformlib {
         $mform->addElement('html', '</div>');
 
         // Add action buttons
-        $this->add_custom_action_buttons(true, get_string('submit', 'local_moodle_survey'));
+        $this->add_custom_action_buttons_helper(true, get_string('submit', 'local_moodle_survey'));
     }
 }
