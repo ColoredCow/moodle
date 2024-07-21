@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.getElementById("number").defaultValue = "0";
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('add-category-button').addEventListener('click', function() {
         var container = document.getElementById('new-category-input-container');

@@ -245,3 +245,11 @@
         text-decoration: none;
     }
 }
+
+.question-category-section {
+    margin-top: 20px;
+
+    .question-category-selection {
+        margin-bottom: 16px;
+    }
+}

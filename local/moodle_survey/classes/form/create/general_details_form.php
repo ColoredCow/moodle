@@ -31,16 +31,15 @@ class general_details_form extends \customformlib {
         $mform->addElement('html', '<textarea id="id_description" placeholder="' . get_string('surveydescriptionplaceholder', 'local_moodle_survey') . '" name="description" wrap="virtual" rows="5" cols="100" class="form-control"></textarea>');
         $mform->addElement('html', '</div>');
 
-        // Status field with custom HTML
-        $mform->addElement('html', '<div class="form-group">');
-        $mform->addElement('html', '<label for="id_status">' . get_string('surveystatus', 'local_moodle_survey') . '</label>');
-        $mform->addElement('html', '<select id="id_status" name="status" class="form-control">');
-        $mform->addElement('html', '<option value="0">' . get_string('inactive', 'local_moodle_survey') . '</option>');
-        $mform->addElement('html', '<option value="1">' . get_string('active', 'local_moodle_survey') . '</option>');
-        $mform->addElement('html', '</select>');
-        $mform->addElement('html', '</div>');
+        // // Status field with custom HTML
+        // $mform->addElement('html', '<div class="form-group">');
+        // $mform->addElement('html', '<label for="id_status">' . get_string('surveystatus', 'local_moodle_survey') . '</label>');
+        // $mform->addElement('html', '<select id="id_status" name="status" class="form-control">');
+        // $mform->addElement('html', '<option value="0">' . get_string('inactive', 'local_moodle_survey') . '</option>');
+        // $mform->addElement('html', '<option value="1">' . get_string('active', 'local_moodle_survey') . '</option>');
+        // $mform->addElement('html', '</select>');
+        // $mform->addElement('html', '</div>');
 
-        // Custom HTML for closing the form section
         $mform->addElement('html', '</div>');
 
         // Add action buttons

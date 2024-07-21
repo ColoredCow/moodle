@@ -69,3 +69,5 @@ $string['scorefrom'] = 'From';
 $string['scoreto'] = 'To';
 $string['interpretedas'] = 'Interpreted as';
 $string['interpretedasplaceholder'] = 'ex: never';
+$string['questioncategory'] = 'Question Category';
+$string['addnewcategory'] = 'Add New Category';
