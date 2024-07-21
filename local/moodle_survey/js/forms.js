@@ -17,9 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// set the default value 0 of the input number type 
-document.getElementById("number").defaultValue = "0";
-
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('add-category-button').addEventListener('click', function() {
         var container = document.getElementById('new-category-input-container');
@@ -47,7 +44,7 @@ function createQuestionScoreSection() {
     newSection.innerHTML = `
         <div>
             <label for="score" class="form-label">Score</label>
-            <input type="number" class="question-score" id="score" name="score[]" min="1" max="10">
+            <input type="number" id="number" class="question-score" name="score[]" min="1" max="10">
         </div>
         <div class="associated-option-section">
             <label for="associatedoption" class="form-label">Associated option</label>
@@ -57,3 +54,6 @@ function createQuestionScoreSection() {
 
     return newSection;
 }
+
+// set the default value 0 of the input number type 
+document.getElementById("number").defaultValue = "0";
