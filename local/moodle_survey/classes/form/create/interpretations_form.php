@@ -16,11 +16,9 @@ class interpretations_form extends \customformlib {
         $mform->addElement('html', '<div class="new-option-section question-score-option-section" id="question-score-option-section">');
         $mform->addElement('html', $this->get_question_score_section());
         $mform->addElement('html', '</div>');
-        $mform->addElement('html', '<div id="new-sections-container"></div>');
-        $mform->addElement('html', '<button type="button" id="new-score-and-option-button" class="add-new-button"><img src="' . $iconurl . '" alt="Icon" class="plus-icon">' . get_string('addnewscorebutton', 'local_moodle_survey') . '</button>');
+        $mform->addElement('html', '<div id="new-score-sections-container"></div>');
+        $mform->addElement('html', '<button type="button" id="new-score-and-associated-option" class="add-new-button"><img src="' . $iconurl . '" alt="Icon" class="plus-icon">' . get_string('addnewscorebutton', 'local_moodle_survey') . '</button>');
         $mform->addElement('html', '</div></div>');
-    
-        $this->add_custom_action_buttons_helper(true, get_string('submit', 'local_moodle_survey'));
     }
     
     protected function get_question_score_section() {

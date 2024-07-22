@@ -74,3 +74,7 @@ $string['questioncategory'] = 'Question Category';
 $string['addnewcategory'] = 'Add New Category';
 $string['addnewcategoryid'] = 'add-new-category';
 $string['addnewquestion'] = 'Add a new questions';
+$string['newcategoryandinterpretation'] = 'New category and Interpretation';
+$string['surveyvalidityheading'] = 'Duration of collecting responses';
+$string['surveyvaliditystartdatelabel'] = 'Start Date';
+$string['surveyvalidityenddatelabel'] = 'End Date';
