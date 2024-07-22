@@ -73,3 +73,4 @@ $string['interpretedasplaceholder'] = 'ex: never';
 $string['questioncategory'] = 'Question Category';
 $string['addnewcategory'] = 'Add New Category';
 $string['addnewcategoryid'] = 'add-new-category';
+$string['addnewquestion'] = 'Add a new questions';

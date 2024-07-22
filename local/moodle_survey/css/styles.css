@@ -99,12 +99,23 @@
     .general-details-section {
         display: flex;
         align-items: center;
+        margin-bottom: 20px;
     }
 
     .general-details {
         margin-left: 35px;
         margin-top: 20px;
         width: 661px;
+    }
+}
+
+.question-score-form {
+    margin-left: 35px;
+    margin-top: 20px;
+    width: 661px;
+
+    .mform .form-section {
+        border-bottom: 1px solid transparent !important;
     }
 }
 
@@ -224,6 +235,7 @@
     justify-content: flex-end;
     gap: 20px;
     margin-top: 40px;
+    width: 749px;
 
     .custom-action-btn {
         padding: 12px 14px;
@@ -256,4 +268,10 @@
 
 .question-score-category-selection {
     margin-bottom: 16px;
+}
+
+.question-item-section {
+    width: 749px;
+    border-bottom: 1px solid #D9D9D9;
+    margin-bottom: 25px;
 }

@@ -78,3 +78,20 @@ function createQuestionCategorySelectionSection() {
 
 // set the default value 0 of the input number type 
 document.getElementById("number").defaultValue = "0";
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    let questionCounter = 1;
+
+    document.getElementById('add-new-question-button').addEventListener('click', function() {
+        const template = document.getElementById('question-template');
+        const newQuestion = template.cloneNode(true);
+
+        questionCounter++;
+        newQuestion.style.display = 'block';
+        newQuestion.removeAttribute('id');
+        newQuestion.querySelector('.question-number').innerText = questionCounter;
+
+        document.querySelector('#questions .accordion').insertBefore(newQuestion, this);
+    });
+});

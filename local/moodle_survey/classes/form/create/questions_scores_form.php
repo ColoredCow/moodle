@@ -19,8 +19,6 @@ class questions_scores_form extends \customformlib {
         $mform->addElement('html', $this->get_add_new_option_button(get_string('addnewscorebuttonid', 'local_moodle_survey'), get_string('addnewscorebutton', 'local_moodle_survey')));
         $mform->addElement('html', $this->get_question_category_section());
         $mform->addElement('html', '</div></div>');
-    
-        $this->add_custom_action_buttons_helper(true, get_string('submit', 'local_moodle_survey'));
     }
     
     protected function get_question_score_section() {
