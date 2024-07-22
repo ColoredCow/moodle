@@ -16,7 +16,7 @@ class questions_scores_form extends \customformlib {
         $mform->addElement('html', $this->get_question_score_section());
         $mform->addElement('html', '</div>');
         $mform->addElement('html', '<div id="new-sections-container"></div>');
-        $mform->addElement('html', $this->get_add_new_option_button(get_string('addnewscorebutton', 'local_moodle_survey')));
+        $mform->addElement('html', $this->get_add_new_option_button(get_string('addnewscorebuttonid', 'local_moodle_survey'), get_string('addnewscorebutton', 'local_moodle_survey')));
         $mform->addElement('html', $this->get_question_category_section());
         $mform->addElement('html', '</div></div>');
     
@@ -36,18 +36,19 @@ class questions_scores_form extends \customformlib {
     protected function get_question_category_section() {
         $section = '<div class="question-category-section">';
         $section .= '<div class="question-category-selection"><label for="category" class="form-label">' . get_string('questioncategory', 'local_moodle_survey') . '</label>';
-        $section .= '<select id="id_name" name="status" class="form-control" required>';
+        $section .= '<select id="id_name" name="status" class="form-control question-score-category-selection" required>';
         $section .= '<option value="0">' . get_string('inactive', 'local_moodle_survey') . '</option>';
         $section .= '<option value="1">' . get_string('active', 'local_moodle_survey') . '</option>';
         $section .= '</select></div>';
-        $section .= $this->get_add_new_option_button(get_string('addnewcategory', 'local_moodle_survey'));
+        $section .= '<div id="question-category-selection"></div>';
+        $section .= $this->get_add_new_option_button(get_string('addnewcategoryid', 'local_moodle_survey'), get_string('addnewcategory', 'local_moodle_survey'));
         $section .= '</div>';
         return $section;
     }
 
-    protected function get_add_new_option_button($buttonlabel) {
+    protected function get_add_new_option_button($buttonid, $buttonlabel) {
         $iconurl = new \moodle_url('/local/moodle_survey/pix/plus-icon.svg');
-        $button = '<button type="button" id="new-score-and-option-button" class="add-new-button"><img src="' . $iconurl . '" alt="Icon" class="plus-icon">' . $buttonlabel . '</button>';
+        $button = '<button type="button" id="' . $buttonid . '" class="add-new-button"><img src="' . $iconurl . '" alt="Icon" class="plus-icon">' . $buttonlabel . '</button>';
         return $button;
     }
 }

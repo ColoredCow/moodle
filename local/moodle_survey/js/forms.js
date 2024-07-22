@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('new-score-and-option-button').addEventListener('click', function() {
+    document.getElementById('add-new-score-button').addEventListener('click', function() {
         var container = document.getElementById('new-sections-container');
         container.appendChild(createQuestionScoreSection());
     });
@@ -50,6 +50,28 @@ function createQuestionScoreSection() {
             <label for="associatedoption" class="form-label">Associated option</label>
             <input type="text" id="associatedoption" class="question-associatedoption" name="associatedoption[]" placeholder="ex: never">
         </div>
+    `;
+
+    return newSection;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('add-new-category').addEventListener('click', function() {
+        console.log("hello")
+        var container = document.getElementById('question-category-selection');
+        container.appendChild(createQuestionCategorySelectionSection());
+    });
+});
+
+function createQuestionCategorySelectionSection() {
+    var newSection = document.createElement('div');
+    newSection.className = 'question-score-category-selection';
+
+    newSection.innerHTML = `
+        <select id="id_name" name="status" class="form-control question-score-category-selection" required>
+            <option value="0">Inactive</option>
+            <option value="1">Active</option>
+        </select>
     `;
 
     return newSection;
