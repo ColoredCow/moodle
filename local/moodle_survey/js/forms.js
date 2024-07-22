@@ -57,7 +57,6 @@ function createQuestionScoreSection() {
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('add-new-category').addEventListener('click', function() {
-        console.log("hello")
         var container = document.getElementById('question-category-selection');
         container.appendChild(createQuestionCategorySelectionSection());
     });
