@@ -93,14 +93,14 @@
     color: #FFF !important;
 }
 
+.general-details-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .accordion {
     margin-bottom: 10px;
-
-    .general-details-section {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-    }
 
     .general-details {
         margin-left: 35px;

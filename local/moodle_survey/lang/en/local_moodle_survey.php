@@ -78,3 +78,7 @@ $string['newcategoryandinterpretation'] = 'New category and Interpretation';
 $string['surveyvalidityheading'] = 'Duration of collecting responses';
 $string['surveyvaliditystartdatelabel'] = 'Start Date';
 $string['surveyvalidityenddatelabel'] = 'End Date';
+$string['publishsurveybtn'] = 'Save & Publish';
+$string['targetaudience'] = 'TARGET AUDIENCE';
+$string['accesstoresponse'] = 'ACCESS TO RESPONSES';
+$string['assigntoschool'] = 'ASSIGN TO SCHOOL';
