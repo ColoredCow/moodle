@@ -1,0 +1,7 @@
+# OSX
+#
+.DS_Store
+
+# directories
+local/moodle_survey
+theme/academi
