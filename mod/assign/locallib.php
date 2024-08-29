@@ -748,7 +748,7 @@ class assign {
         $update->grade = $formdata->grade;
         $update->completionsubmit = !empty($formdata->completionsubmit);
         $update->teamsubmission = $formdata->teamsubmission;
-        $update->requireallteammemberssubmit = $formdata->requireallteammemberssubmit;
+        $update->requireallteammemberssubmit = $formdata->requireallteammemberssubmit ?? 0;
         if (isset($formdata->teamsubmissiongroupingid)) {
             $update->teamsubmissiongroupingid = $formdata->teamsubmissiongroupingid;
         }
